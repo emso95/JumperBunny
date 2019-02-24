@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B0171E1A2221D94000A70A1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E192221D94000A70A1B /* AppDelegate.swift */; };
-		B0171E1C2221D94000A70A1B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B0171E1B2221D94000A70A1B /* GameScene.sks */; };
 		B0171E1E2221D94000A70A1B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = B0171E1D2221D94000A70A1B /* Actions.sks */; };
 		B0171E202221D94000A70A1B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E1F2221D94000A70A1B /* GameScene.swift */; };
 		B0171E222221D94000A70A1B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E212221D94000A70A1B /* GameViewController.swift */; };
@@ -17,6 +16,11 @@
 		B0171E2A2221D94200A70A1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0171E282221D94200A70A1B /* LaunchScreen.storyboard */; };
 		B0171E352221D94200A70A1B /* JumperBunnyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E342221D94200A70A1B /* JumperBunnyTests.swift */; };
 		B0171E402221D94200A70A1B /* JumperBunnyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E3F2221D94200A70A1B /* JumperBunnyUITests.swift */; };
+		B0171E4E2221E50E00A70A1B /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B0171E4D2221E50E00A70A1B /* player.atlas */; };
+		B0171E522221E7C000A70A1B /* GameSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E512221E7C000A70A1B /* GameSprite.swift */; };
+		B0171E542221E83100A70A1B /* Bunny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E532221E83100A70A1B /* Bunny.swift */; };
+		B0171E56222209FB00A70A1B /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E55222209FB00A70A1B /* Ground.swift */; };
+		B0171E5822220A4E00A70A1B /* ground.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B0171E5722220A4E00A70A1B /* ground.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,6 @@
 /* Begin PBXFileReference section */
 		B0171E162221D94000A70A1B /* JumperBunny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumperBunny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0171E192221D94000A70A1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B0171E1B2221D94000A70A1B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		B0171E1D2221D94000A70A1B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		B0171E1F2221D94000A70A1B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		B0171E212221D94000A70A1B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +56,11 @@
 		B0171E3B2221D94200A70A1B /* JumperBunnyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JumperBunnyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0171E3F2221D94200A70A1B /* JumperBunnyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumperBunnyUITests.swift; sourceTree = "<group>"; };
 		B0171E412221D94200A70A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0171E4D2221E50E00A70A1B /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
+		B0171E512221E7C000A70A1B /* GameSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSprite.swift; sourceTree = "<group>"; };
+		B0171E532221E83100A70A1B /* Bunny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bunny.swift; sourceTree = "<group>"; };
+		B0171E55222209FB00A70A1B /* Ground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
+		B0171E5722220A4E00A70A1B /* ground.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = ground.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +111,9 @@
 		B0171E182221D94000A70A1B /* JumperBunny */ = {
 			isa = PBXGroup;
 			children = (
+				B0171E5722220A4E00A70A1B /* ground.atlas */,
+				B0171E4D2221E50E00A70A1B /* player.atlas */,
 				B0171E192221D94000A70A1B /* AppDelegate.swift */,
-				B0171E1B2221D94000A70A1B /* GameScene.sks */,
 				B0171E1D2221D94000A70A1B /* Actions.sks */,
 				B0171E1F2221D94000A70A1B /* GameScene.swift */,
 				B0171E212221D94000A70A1B /* GameViewController.swift */,
@@ -112,6 +121,9 @@
 				B0171E262221D94200A70A1B /* Assets.xcassets */,
 				B0171E282221D94200A70A1B /* LaunchScreen.storyboard */,
 				B0171E2B2221D94200A70A1B /* Info.plist */,
+				B0171E512221E7C000A70A1B /* GameSprite.swift */,
+				B0171E532221E83100A70A1B /* Bunny.swift */,
+				B0171E55222209FB00A70A1B /* Ground.swift */,
 			);
 			path = JumperBunny;
 			sourceTree = "<group>";
@@ -238,9 +250,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0171E5822220A4E00A70A1B /* ground.atlas in Resources */,
 				B0171E252221D94000A70A1B /* Main.storyboard in Resources */,
-				B0171E1C2221D94000A70A1B /* GameScene.sks in Resources */,
 				B0171E272221D94200A70A1B /* Assets.xcassets in Resources */,
+				B0171E4E2221E50E00A70A1B /* player.atlas in Resources */,
 				B0171E2A2221D94200A70A1B /* LaunchScreen.storyboard in Resources */,
 				B0171E1E2221D94000A70A1B /* Actions.sks in Resources */,
 			);
@@ -267,9 +280,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0171E56222209FB00A70A1B /* Ground.swift in Sources */,
+				B0171E522221E7C000A70A1B /* GameSprite.swift in Sources */,
 				B0171E202221D94000A70A1B /* GameScene.swift in Sources */,
 				B0171E222221D94000A70A1B /* GameViewController.swift in Sources */,
 				B0171E1A2221D94000A70A1B /* AppDelegate.swift in Sources */,
+				B0171E542221E83100A70A1B /* Bunny.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7N8JKDK68;
 				INFOPLIST_FILE = JumperBunny/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z7N8JKDK68;
 				INFOPLIST_FILE = JumperBunny/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
