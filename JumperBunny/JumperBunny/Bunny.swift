@@ -27,6 +27,7 @@ class Bunny: SKSpriteNode,GameSprite {
         self.physicsBody?.linearDamping = 0.9
         self.physicsBody?.mass = 30
         self.physicsBody?.allowsRotation = false
+        //self.physicsBody?.affectedByGravity = false
     }
     func createAnimations(){
         let walkFrames: [SKTexture] = [
@@ -47,20 +48,15 @@ class Bunny: SKSpriteNode,GameSprite {
         wandering = SKAction.repeatForever(walkingBunny)*/
         
     }
-    func onTap() {
-        
-    }
+    
     func update(){
-        if self.isWalking && !self.isJumping{
+        if self.isWalking{
             if self.isLeft{
                 self.physicsBody?.velocity.dx = -200
             }
             else{
                 self.physicsBody?.velocity.dx = 200
             }
-        }
-        else if self.isWalking && self.isJumping{
-            
         }
         else{
             self.physicsBody?.velocity.dx = 0
@@ -87,6 +83,7 @@ class Bunny: SKSpriteNode,GameSprite {
         self.isWalking = false
     }
     func jump(){
-        self.removeAllActions()
+        self.isJumping = true
+        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20000))
     }
 }

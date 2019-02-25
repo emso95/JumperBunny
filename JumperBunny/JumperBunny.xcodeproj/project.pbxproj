@@ -21,6 +21,12 @@
 		B0171E542221E83100A70A1B /* Bunny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E532221E83100A70A1B /* Bunny.swift */; };
 		B0171E56222209FB00A70A1B /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E55222209FB00A70A1B /* Ground.swift */; };
 		B0171E5822220A4E00A70A1B /* ground.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B0171E5722220A4E00A70A1B /* ground.atlas */; };
+		B0171E5B2222584A00A70A1B /* envir.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B0171E5A2222584900A70A1B /* envir.atlas */; };
+		B0171E5E22233E2C00A70A1B /* EncounterCake.sks in Resources */ = {isa = PBXBuildFile; fileRef = B0171E5D22233E2C00A70A1B /* EncounterCake.sks */; };
+		B0171E6022233F4800A70A1B /* EncounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E5F22233F4800A70A1B /* EncounterManager.swift */; };
+		B0171E622223499A00A70A1B /* enemies.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B0171E612223499A00A70A1B /* enemies.atlas */; };
+		B0171E6422234A1700A70A1B /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E6322234A1700A70A1B /* Cloud.swift */; };
+		B0171E6622236AFD00A70A1B /* flyMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E6522236AFD00A70A1B /* flyMan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +67,12 @@
 		B0171E532221E83100A70A1B /* Bunny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bunny.swift; sourceTree = "<group>"; };
 		B0171E55222209FB00A70A1B /* Ground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
 		B0171E5722220A4E00A70A1B /* ground.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = ground.atlas; sourceTree = "<group>"; };
+		B0171E5A2222584900A70A1B /* envir.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = envir.atlas; sourceTree = "<group>"; };
+		B0171E5D22233E2C00A70A1B /* EncounterCake.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterCake.sks; sourceTree = "<group>"; };
+		B0171E5F22233F4800A70A1B /* EncounterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterManager.swift; sourceTree = "<group>"; };
+		B0171E612223499A00A70A1B /* enemies.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = enemies.atlas; sourceTree = "<group>"; };
+		B0171E6322234A1700A70A1B /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
+		B0171E6522236AFD00A70A1B /* flyMan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flyMan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,19 +123,25 @@
 		B0171E182221D94000A70A1B /* JumperBunny */ = {
 			isa = PBXGroup;
 			children = (
+				B0171E612223499A00A70A1B /* enemies.atlas */,
+				B0171E5A2222584900A70A1B /* envir.atlas */,
 				B0171E5722220A4E00A70A1B /* ground.atlas */,
 				B0171E4D2221E50E00A70A1B /* player.atlas */,
-				B0171E192221D94000A70A1B /* AppDelegate.swift */,
-				B0171E1D2221D94000A70A1B /* Actions.sks */,
-				B0171E1F2221D94000A70A1B /* GameScene.swift */,
-				B0171E212221D94000A70A1B /* GameViewController.swift */,
-				B0171E232221D94000A70A1B /* Main.storyboard */,
-				B0171E262221D94200A70A1B /* Assets.xcassets */,
-				B0171E282221D94200A70A1B /* LaunchScreen.storyboard */,
 				B0171E2B2221D94200A70A1B /* Info.plist */,
-				B0171E512221E7C000A70A1B /* GameSprite.swift */,
+				B0171E1D2221D94000A70A1B /* Actions.sks */,
+				B0171E192221D94000A70A1B /* AppDelegate.swift */,
 				B0171E532221E83100A70A1B /* Bunny.swift */,
+				B0171E6322234A1700A70A1B /* Cloud.swift */,
+				B0171E5F22233F4800A70A1B /* EncounterManager.swift */,
+				B0171E6522236AFD00A70A1B /* flyMan.swift */,
+				B0171E1F2221D94000A70A1B /* GameScene.swift */,
+				B0171E512221E7C000A70A1B /* GameSprite.swift */,
+				B0171E212221D94000A70A1B /* GameViewController.swift */,
 				B0171E55222209FB00A70A1B /* Ground.swift */,
+				B0171E262221D94200A70A1B /* Assets.xcassets */,
+				B0171E5C22233DDC00A70A1B /* Encounters */,
+				B0171E282221D94200A70A1B /* LaunchScreen.storyboard */,
+				B0171E232221D94000A70A1B /* Main.storyboard */,
 			);
 			path = JumperBunny;
 			sourceTree = "<group>";
@@ -144,6 +162,14 @@
 				B0171E412221D94200A70A1B /* Info.plist */,
 			);
 			path = JumperBunnyUITests;
+			sourceTree = "<group>";
+		};
+		B0171E5C22233DDC00A70A1B /* Encounters */ = {
+			isa = PBXGroup;
+			children = (
+				B0171E5D22233E2C00A70A1B /* EncounterCake.sks */,
+			);
+			path = Encounters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,12 +276,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0171E622223499A00A70A1B /* enemies.atlas in Resources */,
+				B0171E5B2222584A00A70A1B /* envir.atlas in Resources */,
 				B0171E5822220A4E00A70A1B /* ground.atlas in Resources */,
 				B0171E252221D94000A70A1B /* Main.storyboard in Resources */,
 				B0171E272221D94200A70A1B /* Assets.xcassets in Resources */,
 				B0171E4E2221E50E00A70A1B /* player.atlas in Resources */,
 				B0171E2A2221D94200A70A1B /* LaunchScreen.storyboard in Resources */,
 				B0171E1E2221D94000A70A1B /* Actions.sks in Resources */,
+				B0171E5E22233E2C00A70A1B /* EncounterCake.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,11 +310,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0171E56222209FB00A70A1B /* Ground.swift in Sources */,
+				B0171E6022233F4800A70A1B /* EncounterManager.swift in Sources */,
 				B0171E522221E7C000A70A1B /* GameSprite.swift in Sources */,
 				B0171E202221D94000A70A1B /* GameScene.swift in Sources */,
 				B0171E222221D94000A70A1B /* GameViewController.swift in Sources */,
+				B0171E6422234A1700A70A1B /* Cloud.swift in Sources */,
 				B0171E1A2221D94000A70A1B /* AppDelegate.swift in Sources */,
 				B0171E542221E83100A70A1B /* Bunny.swift in Sources */,
+				B0171E6622236AFD00A70A1B /* flyMan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,12 +16,20 @@ class GameScene: SKScene {
     let jumpButton = SKSpriteNode()
     let world = SKNode()
     let bunny = Bunny()
-    let ground = Ground()
-    
+    let ground1 = Ground()
+    let ground2 = Ground()
+    let ground3 = Ground()
+    let ground4 = Ground()
+    let encounterManager = EncounterManager()
     override func didMove(to view: SKView) {
         self.backgroundColor = UIColor(red: 0.4, green: 0.6, blue: 0.95, alpha: 1)
         self.addChild(world)
-        bunny.spawn(parentNode: world, position: CGPoint(x: 250, y: 250))
+        bunny.spawn(parentNode: world, position: CGPoint(x: 100, y: 250))
+        ground1.spawn(parentNode: world, position: CGPoint(x: 50, y: 100))
+        ground2.spawn(parentNode: world, position: CGPoint(x: 200, y: 100))
+        ground3.spawn(parentNode: world, position: CGPoint(x: 350, y: 100))
+        ground4.spawn(parentNode: world, position: CGPoint(x: 500, y: 100))
+        
         
         rightButton.texture = textureAtlas.textureNamed("arrow.png")
         rightButton.size = CGSize(width: 100, height: 100)
@@ -41,7 +49,7 @@ class GameScene: SKScene {
         jumpButton.texture = textureAtlas.textureNamed("jump.png")
         jumpButton.size = CGSize(width: 100, height: 100)
         jumpButton.name = "JumpBtn"
-        jumpButton.position = CGPoint(x: 20, y:50)
+        jumpButton.position = CGPoint(x: 70, y:70)
         jumpButton.alpha = 0.2
         jumpButton.zPosition = 10
         let jumpText = SKLabelNode(fontNamed: "AvenirNext-HeavyItalic")
@@ -56,21 +64,16 @@ class GameScene: SKScene {
         self.addChild(rightButton)
         self.addChild(leftButton)
         
-        let groundPosition = CGPoint(x: -self.size.width, y: 30)
+        encounterManager.addEncountersToWorld(world: self.world)
+        encounterManager.encounters[0].position = CGPoint(x: 500, y: 0)
         
-        let groundSize = CGSize(width: self.size.width * 3, height:0)
-        
-        ground.spawn(parentNode: world, position: groundPosition, size:
-            groundSize)
     }
     
     override func didSimulatePhysics() {
-        let worldXPos = -(bunny.position.x * world.xScale -
-            (self.size.width / 2))
-        let worldYPos = -(bunny.position.y * world.yScale -
-            (self.size.height / 2))
+        let worldXPos = -(bunny.position.x * world.xScale - (self.size.width / 2))
+        
         // Move the world so that the bee is centered in the scene
-        world.position = CGPoint(x: worldXPos, y: worldYPos)
+        world.position = CGPoint(x: worldXPos, y: world.position.y)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -99,10 +102,15 @@ class GameScene: SKScene {
         }
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        leftButton.alpha = 0.2
-        rightButton.alpha = 0.2
-        jumpButton.alpha = 0.2
-        bunny.stopWalking()
+        if !bunny.isJumping{
+            leftButton.alpha = 0.2
+            rightButton.alpha = 0.2
+            bunny.stopWalking()        }
+        else{
+            jumpButton.alpha = 0.2
+            bunny.isJumping = false
+        }
+        
     }
     
     

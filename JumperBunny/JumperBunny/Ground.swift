@@ -8,56 +8,101 @@
 
 import Foundation
 import SpriteKit
-// A new class, inheriting from SKSpriteNode and
-// adhering to the GameSprite protocol.
+
 class Ground: SKSpriteNode, GameSprite {
-    var textureAtlas:SKTextureAtlas =
-        SKTextureAtlas(named:"ground.atlas")
-    // Create an optional property named groundTexture to store
-    // the current ground texture:
-    var groundTexture:SKTexture?
-    func spawn(parentNode:SKNode, position:CGPoint, size:CGSize) {
+    
+    var textureAtlas:SKTextureAtlas = SKTextureAtlas(named:"envir.atlas")
+    
+    func spawn(parentNode:SKNode, position:CGPoint, size:CGSize = CGSize(width: 190, height: 50)) {
         parentNode.addChild(self)
         self.size = size
         self.position = position
-        // This is one of those unique situations where we use
-        // non-default anchor point. By positioning the ground by
-        // its top left corner, we can place it just slightly
-        // above the bottom of the screen, on any of screen size.
-        self.anchorPoint = CGPoint(x: 0, y: 1)
-        // Default to the ice texture:
-        if groundTexture == nil {
-            groundTexture = textureAtlas.textureNamed("ice-tile.png");
-        }
-        // We will create child nodes to repeat the texture.
-        createChildren()
-        let pointTopRight = CGPoint(x: size.width, y: 0)
-        self.physicsBody = SKPhysicsBody(edgeFrom: CGPoint.zero,
-                                         to: pointTopRight)
+        self.texture = textureAtlas.textureNamed("ground_cake.png")
+        let bodyTexture = textureAtlas.textureNamed("ground_cake.png")
+        self.physicsBody = SKPhysicsBody(texture: bodyTexture, size: size)
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.isDynamic = false
     }
-    // Build child nodes to repeat the ground texture
-    func createChildren() {
-        // First, make sure we have a groundTexture value:
-        if let texture = groundTexture {
-            var tileCount:CGFloat = 0
-            let textureSize = texture.size()
-// We will size the tiles at half the size
-// of their texture for retina sharpness:
-            let tileSize = CGSize(width: textureSize.width / 2,
-                                  height: textureSize.height / 2)
-            // Build nodes until we cover the entire Ground width
-            while tileCount * tileSize.width < self.size.width {
-                let tileNode = SKSpriteNode(texture: texture)
-                tileNode.size = tileSize
-                tileNode.position.x = tileCount * tileSize.width
-                // Position child nodes by their upper left corner
-                tileNode.anchorPoint = CGPoint(x: 0, y: 1)
-                // Add the child texture to the ground node:
-                self.addChild(tileNode)
-                tileCount+=1
-            }
-        }
+    func turnToBroken(){
+        self.texture = textureAtlas.textureNamed("ground_cake_broken.png")
     }
-    // Implement onTap to adhere to the protocol:
-    func onTap() {}
+    func turnToSmall(){
+        self.texture = textureAtlas.textureNamed("ground_cake_small.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    func turnToSmallBroken(){
+        self.texture = textureAtlas.textureNamed("ground_cake_small_broken.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    func turnToGrass(){
+        self.texture = textureAtlas.textureNamed("ground_grass.png")
+    }
+    func turnToGrassSmall(){
+        self.texture = textureAtlas.textureNamed("ground_grass_small.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    func turnToGrassBroken(){
+        self.texture = textureAtlas.textureNamed("ground_grass_broken.png")
+    }
+    func turnToGrassSmallBroken(){
+        self.texture = textureAtlas.textureNamed("ground_grass_small_broken.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    func turnToSand(){
+        self.texture = textureAtlas.textureNamed("ground_sand.png")
+    }
+    func turnToSandSmall(){
+        self.texture = textureAtlas.textureNamed("ground_sand_small.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    func turnToSandBroken(){
+        self.texture = textureAtlas.textureNamed("ground_sand_broken.png")
+    }
+    func turnToSandSmallBroken(){
+        self.texture = textureAtlas.textureNamed("ground_sand_small_broken.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    func turnToSnow(){
+        self.texture = textureAtlas.textureNamed("ground_snow.png")
+    }
+    func turnToSnowSmall(){
+        self.texture = textureAtlas.textureNamed("ground_snow_small.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    func turnToSnowBroken(){
+        self.texture = textureAtlas.textureNamed("ground_snow_broken.png")
+    }
+    func turnToSnowSmallBroken(){
+        self.texture = textureAtlas.textureNamed("ground_snow_small_broken.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    func turnToStone(){
+        self.texture = textureAtlas.textureNamed("ground_stone.png")
+    }
+    func turnToStonrSmall(){
+        self.texture = textureAtlas.textureNamed("ground_stone_small.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    func turnToStoneBroken(){
+        self.texture = textureAtlas.textureNamed("ground_stone_broken.png")
+    }
+    func turnToStoneSmallBroken(){
+        self.texture = textureAtlas.textureNamed("ground_stone_small_broken.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    func turnToWood(){
+        self.texture = textureAtlas.textureNamed("ground_wood.png")
+    }
+    func turnToWoodSmall(){
+        self.texture = textureAtlas.textureNamed("ground_wood_small.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    func turnToWoodBroken(){
+        self.texture = textureAtlas.textureNamed("ground_wood_broken.png")
+    }
+    func turnToWoodSmallBroken(){
+        self.texture = textureAtlas.textureNamed("ground_wood_small_broken.png")
+        self.size = CGSize(width: 90, height: 50)
+    }
+    
 }
