@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     let textureAtlas:SKTextureAtlas = SKTextureAtlas(named: "player.atlas")
     let leftButton = SKSpriteNode()
     let rightButton = SKSpriteNode()
@@ -20,11 +20,13 @@ class GameScene: SKScene {
     let ground2 = Ground()
     let ground3 = Ground()
     let ground4 = Ground()
+    let initialPlayerPosition = CGPoint(x: 100, y: 250)
+    var playerProgress = CGFloat()
     let encounterManager = EncounterManager()
     override func didMove(to view: SKView) {
         self.backgroundColor = UIColor(red: 0.4, green: 0.6, blue: 0.95, alpha: 1)
         self.addChild(world)
-        bunny.spawn(parentNode: world, position: CGPoint(x: 100, y: 250))
+        bunny.spawn(parentNode: world, position: initialPlayerPosition)
         ground1.spawn(parentNode: world, position: CGPoint(x: 50, y: 100))
         ground2.spawn(parentNode: world, position: CGPoint(x: 200, y: 100))
         ground3.spawn(parentNode: world, position: CGPoint(x: 350, y: 100))
@@ -66,14 +68,14 @@ class GameScene: SKScene {
         
         encounterManager.addEncountersToWorld(world: self.world)
         encounterManager.encounters[0].position = CGPoint(x: 500, y: 0)
-        
+        self.physicsWorld.contactDelegate = self
     }
     
     override func didSimulatePhysics() {
         let worldXPos = -(bunny.position.x * world.xScale - (self.size.width / 2))
-        
-        // Move the world so that the bee is centered in the scene
         world.position = CGPoint(x: worldXPos, y: world.position.y)
+        playerProgress = bunny.position.x - initialPlayerPosition.x
+        bunny.checkYPosition()
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -113,5 +115,35 @@ class GameScene: SKScene {
         
     }
     
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        let otherBody: SKPhysicsBody
+        let bunnyMask = PhysicsCategory.bunny.rawValue
+        
+        if(contact.bodyA.categoryBitMask & bunnyMask) > 0{
+            otherBody = contact.bodyB
+        }
+        else{
+            otherBody = contact.bodyA
+        }
+        
+        switch otherBody.categoryBitMask {
+        case PhysicsCategory.ground.rawValue:
+            bunny.resetJumpCount()
+        case PhysicsCategory.enemy.rawValue:
+            print("Hit enemy")
+            bunny.die()
+        default:
+            print("Weird Contact")
+        }
+        
+    }
     
+    
+}
+enum PhysicsCategory:UInt32{
+    case bunny = 1
+    case coin = 2
+    case ground = 4
+    case enemy = 8
 }

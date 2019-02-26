@@ -16,6 +16,9 @@ class Bunny: SKSpriteNode,GameSprite {
     var isWalking = false
     var isLeft = false
     var isJumping = false
+    var isDead = false
+    var dieAnimation = SKAction()
+    var jumpCount:Int = 0
     func spawn(parentNode: SKNode, position: CGPoint, size: CGSize = CGSize(width: 40, height: 64)) {
         createAnimations()
         parentNode.addChild(self)
@@ -27,7 +30,9 @@ class Bunny: SKSpriteNode,GameSprite {
         self.physicsBody?.linearDamping = 0.9
         self.physicsBody?.mass = 30
         self.physicsBody?.allowsRotation = false
-        //self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.categoryBitMask = PhysicsCategory.bunny.rawValue
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.enemy.rawValue |
+                                                PhysicsCategory.ground.rawValue
     }
     func createAnimations(){
         let walkFrames: [SKTexture] = [
@@ -63,27 +68,52 @@ class Bunny: SKSpriteNode,GameSprite {
         }
     }
     func moveToLeft(){
-        self.removeAction(forKey: "readyAnimation")
-        self.xScale = -1
-        self.run(walkAnimation, withKey: "walkingAnimation")
-        self.isWalking = true
-        self.isLeft = true
+        if !isDead{
+            self.removeAction(forKey: "readyAnimation")
+            self.xScale = -1
+            self.run(walkAnimation, withKey: "walkingAnimation")
+            self.isWalking = true
+            self.isLeft = true
+        }
     }
     func moveToRight(){
-        self.removeAction(forKey: "readyAnimation")
-        self.xScale = 1
-        self.run(walkAnimation, withKey: "walkingAnimation")
-        self.isWalking = true
-        self.isLeft = false
+        if !isDead{
+            self.removeAction(forKey: "readyAnimation")
+            self.xScale = 1
+            self.run(walkAnimation, withKey: "walkingAnimation")
+            self.isWalking = true
+            self.isLeft = false
+        }
     }
     func stopWalking(){
-        self.removeAction(forKey: "walkingAnimation")
-        self.xScale = -1
-        self.run(readyAnimation, withKey: "readyAnimation")
-        self.isWalking = false
+        if !isDead{
+            self.removeAction(forKey: "walkingAnimation")
+            self.xScale = -1
+            self.run(readyAnimation, withKey: "readyAnimation")
+            self.isWalking = false
+        }
     }
     func jump(){
-        self.isJumping = true
-        self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20000))
+        if !isDead && (jumpCount<=1){
+            self.isJumping = true
+            self.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20000))
+            jumpCount+=1
+        }
+    }
+    func die(){
+        self.removeAllActions()
+        let dieAction = SKAction.animate(with: [textureAtlas.textureNamed("bunny1_hurt.png")], timePerFrame: 1)
+        dieAnimation = SKAction.repeatForever(dieAction)
+        self.run(dieAction)
+        self.isDead = true
+        self.physicsBody?.isDynamic = false
+    }
+    func checkYPosition(){
+        if self.position.y < -30{
+            self.die()
+        }
+    }
+    func resetJumpCount(){
+        jumpCount = 0
     }
 }

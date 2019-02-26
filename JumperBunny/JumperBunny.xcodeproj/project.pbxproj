@@ -27,6 +27,10 @@
 		B0171E622223499A00A70A1B /* enemies.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B0171E612223499A00A70A1B /* enemies.atlas */; };
 		B0171E6422234A1700A70A1B /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E6322234A1700A70A1B /* Cloud.swift */; };
 		B0171E6622236AFD00A70A1B /* flyMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E6522236AFD00A70A1B /* flyMan.swift */; };
+		B0171E68222467A000A70A1B /* SpikeBall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E67222467A000A70A1B /* SpikeBall.swift */; };
+		B0171E6A2224C82200A70A1B /* WingMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E692224C82200A70A1B /* WingMan.swift */; };
+		B0171E6D2224FC3600A70A1B /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E6C2224FC3600A70A1B /* Coin.swift */; };
+		B0171E6F2224FEF200A70A1B /* goods.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B0171E6E2224FEF200A70A1B /* goods.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		B0171E612223499A00A70A1B /* enemies.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = enemies.atlas; sourceTree = "<group>"; };
 		B0171E6322234A1700A70A1B /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		B0171E6522236AFD00A70A1B /* flyMan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flyMan.swift; sourceTree = "<group>"; };
+		B0171E67222467A000A70A1B /* SpikeBall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpikeBall.swift; sourceTree = "<group>"; };
+		B0171E692224C82200A70A1B /* WingMan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WingMan.swift; sourceTree = "<group>"; };
+		B0171E6C2224FC3600A70A1B /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		B0171E6E2224FEF200A70A1B /* goods.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = goods.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +133,7 @@
 			children = (
 				B0171E612223499A00A70A1B /* enemies.atlas */,
 				B0171E5A2222584900A70A1B /* envir.atlas */,
+				B0171E6E2224FEF200A70A1B /* goods.atlas */,
 				B0171E5722220A4E00A70A1B /* ground.atlas */,
 				B0171E4D2221E50E00A70A1B /* player.atlas */,
 				B0171E2B2221D94200A70A1B /* Info.plist */,
@@ -132,12 +141,15 @@
 				B0171E192221D94000A70A1B /* AppDelegate.swift */,
 				B0171E532221E83100A70A1B /* Bunny.swift */,
 				B0171E6322234A1700A70A1B /* Cloud.swift */,
+				B0171E6C2224FC3600A70A1B /* Coin.swift */,
 				B0171E5F22233F4800A70A1B /* EncounterManager.swift */,
 				B0171E6522236AFD00A70A1B /* flyMan.swift */,
 				B0171E1F2221D94000A70A1B /* GameScene.swift */,
 				B0171E512221E7C000A70A1B /* GameSprite.swift */,
 				B0171E212221D94000A70A1B /* GameViewController.swift */,
 				B0171E55222209FB00A70A1B /* Ground.swift */,
+				B0171E67222467A000A70A1B /* SpikeBall.swift */,
+				B0171E692224C82200A70A1B /* WingMan.swift */,
 				B0171E262221D94200A70A1B /* Assets.xcassets */,
 				B0171E5C22233DDC00A70A1B /* Encounters */,
 				B0171E282221D94200A70A1B /* LaunchScreen.storyboard */,
@@ -284,6 +296,7 @@
 				B0171E4E2221E50E00A70A1B /* player.atlas in Resources */,
 				B0171E2A2221D94200A70A1B /* LaunchScreen.storyboard in Resources */,
 				B0171E1E2221D94000A70A1B /* Actions.sks in Resources */,
+				B0171E6F2224FEF200A70A1B /* goods.atlas in Resources */,
 				B0171E5E22233E2C00A70A1B /* EncounterCake.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,10 +322,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0171E6A2224C82200A70A1B /* WingMan.swift in Sources */,
 				B0171E56222209FB00A70A1B /* Ground.swift in Sources */,
+				B0171E68222467A000A70A1B /* SpikeBall.swift in Sources */,
 				B0171E6022233F4800A70A1B /* EncounterManager.swift in Sources */,
 				B0171E522221E7C000A70A1B /* GameSprite.swift in Sources */,
 				B0171E202221D94000A70A1B /* GameScene.swift in Sources */,
+				B0171E6D2224FC3600A70A1B /* Coin.swift in Sources */,
 				B0171E222221D94000A70A1B /* GameViewController.swift in Sources */,
 				B0171E6422234A1700A70A1B /* Cloud.swift in Sources */,
 				B0171E1A2221D94000A70A1B /* AppDelegate.swift in Sources */,

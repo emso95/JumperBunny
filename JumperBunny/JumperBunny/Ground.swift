@@ -22,23 +22,35 @@ class Ground: SKSpriteNode, GameSprite {
         self.physicsBody = SKPhysicsBody(texture: bodyTexture, size: size)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.isDynamic = false
+        self.physicsBody?.categoryBitMask = PhysicsCategory.ground.rawValue
     }
     func turnToBroken(){
         self.texture = textureAtlas.textureNamed("ground_cake_broken.png")
     }
     func turnToSmall(){
-        self.texture = textureAtlas.textureNamed("ground_cake_small.png")
+        let bodyTexture = textureAtlas.textureNamed("ground_cake_small.png")
+        self.physicsBody = SKPhysicsBody(texture: bodyTexture, size: CGSize(width: 90, height: 50))
         self.size = CGSize(width: 90, height: 50)
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.isDynamic = false
+        
     }
     func turnToSmallBroken(){
-        self.texture = textureAtlas.textureNamed("ground_cake_small_broken.png")
+        let bodyTexture = textureAtlas.textureNamed("ground_grass_small_broken.png")
+        self.physicsBody = SKPhysicsBody(texture: bodyTexture, size: CGSize(width: 90, height: 50))
         self.size = CGSize(width: 90, height: 50)
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.isDynamic = false
+        
     }
     func turnToGrass(){
         self.texture = textureAtlas.textureNamed("ground_grass.png")
     }
     func turnToGrassSmall(){
-        self.texture = textureAtlas.textureNamed("ground_grass_small.png")
+        let bodyTexture = textureAtlas.textureNamed("ground_grass_small.png")
+        self.physicsBody = SKPhysicsBody(texture: bodyTexture, size: size)
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.isDynamic = false
         self.size = CGSize(width: 90, height: 50)
     }
     func turnToGrassBroken(){

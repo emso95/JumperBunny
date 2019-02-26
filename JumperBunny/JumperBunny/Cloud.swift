@@ -19,6 +19,8 @@ class Cloud: SKSpriteNode,GameSprite{
         self.texture = textureAtlas.textureNamed("cloud.png")
         self.physicsBody = SKPhysicsBody(texture: textureAtlas.textureNamed("cloud.png"), size: self.size)
         self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.categoryBitMask = PhysicsCategory.enemy.rawValue
+        self.physicsBody?.collisionBitMask = ~PhysicsCategory.bunny.rawValue
     }
    
 }

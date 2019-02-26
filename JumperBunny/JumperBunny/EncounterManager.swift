@@ -44,6 +44,19 @@ class EncounterManager{
                         case "FlyMan":
                             let flyMan = FlyMan()
                             flyMan.spawn(parentNode: encounter, position: node.position)
+                        case "SpikeBall":
+                            let spikeBall = SpikeBall()
+                            spikeBall.spawn(parentNode: encounter, position: node.position)
+                        case "WingMan":
+                            let wingMan = WingMan()
+                            wingMan.spawn(parentNode: encounter, position: node.position)
+                        case "BronzeCoin":
+                            let coin = Coin()
+                            coin.spawn(parentNode: encounter, position: node.position)
+                        case "GoldCoin":
+                            let coin = Coin()
+                            coin.spawn(parentNode: encounter, position: node.position)
+                            coin.turnToGold()
                         default:
                             print("Error")
                         }
