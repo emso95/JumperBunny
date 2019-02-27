@@ -32,7 +32,8 @@ class Bunny: SKSpriteNode,GameSprite {
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.categoryBitMask = PhysicsCategory.bunny.rawValue
         self.physicsBody?.contactTestBitMask = PhysicsCategory.enemy.rawValue |
-                                                PhysicsCategory.ground.rawValue
+                                                PhysicsCategory.ground.rawValue |
+                                                PhysicsCategory.coin.rawValue
     }
     func createAnimations(){
         let walkFrames: [SKTexture] = [
@@ -43,14 +44,6 @@ class Bunny: SKSpriteNode,GameSprite {
         let readyFrames: [SKTexture] = [textureAtlas.textureNamed("bunny1_ready.png")]
         let readyAction = SKAction.animate(with: readyFrames, timePerFrame: 1)
         readyAnimation = SKAction.repeatForever(readyAction)
-        
-        
-        /*let pathLeft = SKAction.move(by: CGVector(dx: -200, dy: -10), duration: 2)
-        let pathRight = SKAction.move(by: CGVector(dx: 200, dy: 10), duration: 2)
-        let flipTextureNegative = SKAction.scaleX(to: -1, duration: 0)
-        let flipTexturePositive = SKAction.scaleX(to: 1, duration: 0)
-        let walkingBunny = SKAction.sequence([pathRight,flipTextureNegative,pathLeft,flipTexturePositive])
-        wandering = SKAction.repeatForever(walkingBunny)*/
         
     }
     
@@ -107,6 +100,9 @@ class Bunny: SKSpriteNode,GameSprite {
         self.run(dieAction)
         self.isDead = true
         self.physicsBody?.isDynamic = false
+        if let gameScene = self.parent?.parent as? GameScene {
+            gameScene.gameOver()
+        }
     }
     func checkYPosition(){
         if self.position.y < -30{

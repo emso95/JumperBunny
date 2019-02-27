@@ -31,6 +31,10 @@
 		B0171E6A2224C82200A70A1B /* WingMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E692224C82200A70A1B /* WingMan.swift */; };
 		B0171E6D2224FC3600A70A1B /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E6C2224FC3600A70A1B /* Coin.swift */; };
 		B0171E6F2224FEF200A70A1B /* goods.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B0171E6E2224FEF200A70A1B /* goods.atlas */; };
+		B0171E7122261BD300A70A1B /* HUD.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B0171E7022261BD300A70A1B /* HUD.atlas */; };
+		B0171E7322261BE900A70A1B /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E7222261BE900A70A1B /* HUD.swift */; };
+		B0171E75222621AF00A70A1B /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E74222621AF00A70A1B /* Background.swift */; };
+		B0171E77222626B900A70A1B /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0171E76222626B900A70A1B /* MenuScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,10 @@
 		B0171E692224C82200A70A1B /* WingMan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WingMan.swift; sourceTree = "<group>"; };
 		B0171E6C2224FC3600A70A1B /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		B0171E6E2224FEF200A70A1B /* goods.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = goods.atlas; sourceTree = "<group>"; };
+		B0171E7022261BD300A70A1B /* HUD.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HUD.atlas; sourceTree = "<group>"; };
+		B0171E7222261BE900A70A1B /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		B0171E74222621AF00A70A1B /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		B0171E76222626B900A70A1B /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,10 +143,12 @@
 				B0171E5A2222584900A70A1B /* envir.atlas */,
 				B0171E6E2224FEF200A70A1B /* goods.atlas */,
 				B0171E5722220A4E00A70A1B /* ground.atlas */,
+				B0171E7022261BD300A70A1B /* HUD.atlas */,
 				B0171E4D2221E50E00A70A1B /* player.atlas */,
 				B0171E2B2221D94200A70A1B /* Info.plist */,
 				B0171E1D2221D94000A70A1B /* Actions.sks */,
 				B0171E192221D94000A70A1B /* AppDelegate.swift */,
+				B0171E74222621AF00A70A1B /* Background.swift */,
 				B0171E532221E83100A70A1B /* Bunny.swift */,
 				B0171E6322234A1700A70A1B /* Cloud.swift */,
 				B0171E6C2224FC3600A70A1B /* Coin.swift */,
@@ -148,6 +158,8 @@
 				B0171E512221E7C000A70A1B /* GameSprite.swift */,
 				B0171E212221D94000A70A1B /* GameViewController.swift */,
 				B0171E55222209FB00A70A1B /* Ground.swift */,
+				B0171E7222261BE900A70A1B /* HUD.swift */,
+				B0171E76222626B900A70A1B /* MenuScene.swift */,
 				B0171E67222467A000A70A1B /* SpikeBall.swift */,
 				B0171E692224C82200A70A1B /* WingMan.swift */,
 				B0171E262221D94200A70A1B /* Assets.xcassets */,
@@ -290,6 +302,7 @@
 			files = (
 				B0171E622223499A00A70A1B /* enemies.atlas in Resources */,
 				B0171E5B2222584A00A70A1B /* envir.atlas in Resources */,
+				B0171E7122261BD300A70A1B /* HUD.atlas in Resources */,
 				B0171E5822220A4E00A70A1B /* ground.atlas in Resources */,
 				B0171E252221D94000A70A1B /* Main.storyboard in Resources */,
 				B0171E272221D94200A70A1B /* Assets.xcassets in Resources */,
@@ -323,15 +336,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0171E6A2224C82200A70A1B /* WingMan.swift in Sources */,
+				B0171E75222621AF00A70A1B /* Background.swift in Sources */,
 				B0171E56222209FB00A70A1B /* Ground.swift in Sources */,
 				B0171E68222467A000A70A1B /* SpikeBall.swift in Sources */,
 				B0171E6022233F4800A70A1B /* EncounterManager.swift in Sources */,
 				B0171E522221E7C000A70A1B /* GameSprite.swift in Sources */,
 				B0171E202221D94000A70A1B /* GameScene.swift in Sources */,
 				B0171E6D2224FC3600A70A1B /* Coin.swift in Sources */,
+				B0171E7322261BE900A70A1B /* HUD.swift in Sources */,
 				B0171E222221D94000A70A1B /* GameViewController.swift in Sources */,
 				B0171E6422234A1700A70A1B /* Cloud.swift in Sources */,
 				B0171E1A2221D94000A70A1B /* AppDelegate.swift in Sources */,
+				B0171E77222626B900A70A1B /* MenuScene.swift in Sources */,
 				B0171E542221E83100A70A1B /* Bunny.swift in Sources */,
 				B0171E6622236AFD00A70A1B /* flyMan.swift in Sources */,
 			);

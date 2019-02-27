@@ -33,7 +33,7 @@ class Ground: SKSpriteNode, GameSprite {
         self.size = CGSize(width: 90, height: 50)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.isDynamic = false
-        
+        self.physicsBody?.categoryBitMask = PhysicsCategory.ground.rawValue
     }
     func turnToSmallBroken(){
         let bodyTexture = textureAtlas.textureNamed("ground_grass_small_broken.png")
@@ -41,7 +41,7 @@ class Ground: SKSpriteNode, GameSprite {
         self.size = CGSize(width: 90, height: 50)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.isDynamic = false
-        
+        self.physicsBody?.categoryBitMask = PhysicsCategory.ground.rawValue
     }
     func turnToGrass(){
         self.texture = textureAtlas.textureNamed("ground_grass.png")

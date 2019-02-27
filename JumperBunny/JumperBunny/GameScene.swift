@@ -22,7 +22,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let ground4 = Ground()
     let initialPlayerPosition = CGPoint(x: 100, y: 250)
     var playerProgress = CGFloat()
+    var coinsCollected = 0
     let encounterManager = EncounterManager()
+    let hud = HUD()
+    var backgrounds:[Background] = []
     override func didMove(to view: SKView) {
         self.backgroundColor = UIColor(red: 0.4, green: 0.6, blue: 0.95, alpha: 1)
         self.addChild(world)
@@ -69,6 +72,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         encounterManager.addEncountersToWorld(world: self.world)
         encounterManager.encounters[0].position = CGPoint(x: 500, y: 0)
         self.physicsWorld.contactDelegate = self
+        
+        hud.createHudNodes(screenSize: self.size)
+        self.addChild(hud)
+        hud.zPosition = 50
+        for i in 0...3{
+            backgrounds.append(Background())
+        }
+        backgrounds[0].spawn(parentNode: world, imageName: "bg_layer4", zPosition: -5, movementMultiplier: 0.75)
+        backgrounds[1].spawn(parentNode: world, imageName: "bg_layer3", zPosition: -10, movementMultiplier: 0.5)
+        backgrounds[2].spawn(parentNode: world, imageName: "bg_layer2", zPosition: -15, movementMultiplier: 0.2)
+        backgrounds[3].spawn(parentNode: world, imageName: "bg_layer1", zPosition: -20, movementMultiplier: 0.1)
     }
     
     override func didSimulatePhysics() {
@@ -76,6 +90,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         world.position = CGPoint(x: worldXPos, y: world.position.y)
         playerProgress = bunny.position.x - initialPlayerPosition.x
         bunny.checkYPosition()
+        hud.setDistanceCountDisplay(newDistCount: Int(floor(self.playerProgress)))
+        for background in self.backgrounds {
+            background.updatePosition(playerProgress: playerProgress)
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -100,6 +118,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 print("Jumped!")
                 nodeTouched.alpha = 1
                 bunny.jump()
+            }
+            if nodeTouched.name == "restartGame" {
+                self.view?.presentScene(
+                    GameScene(size: self.size),
+                    transition: .crossFade(withDuration: 0.6))
+            }
+            else if nodeTouched.name == "returnToMenu" {
+                self.view?.presentScene(
+                    MenuScene(size: self.size),
+                    transition: .crossFade(withDuration: 0.6))
             }
         }
     }
@@ -129,16 +157,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         switch otherBody.categoryBitMask {
         case PhysicsCategory.ground.rawValue:
+            print("On ground")
             bunny.resetJumpCount()
         case PhysicsCategory.enemy.rawValue:
             print("Hit enemy")
             bunny.die()
+        case PhysicsCategory.coin.rawValue:
+            if let coin = otherBody.node as? Coin {
+                
+                coin.collect()
+                self.coinsCollected += coin.value
+                print(self.coinsCollected)
+                hud.setCoinCountDisplay(newCoinCount: self.coinsCollected)
+                
+            }
         default:
             print("Weird Contact")
         }
         
     }
     
+    func gameOver() {
+        hud.showButtons()
+    }
     
 }
 enum PhysicsCategory:UInt32{

@@ -14,6 +14,7 @@ class FlyMan: SKSpriteNode,GameSprite{
     var jumpAnimation = SKAction()
     var standingAnimation = SKAction()
     var flyAnimation = SKAction()
+    
     func spawn(parentNode: SKNode, position: CGPoint, size: CGSize = CGSize(width: 40, height: 40)) {
         parentNode.addChild(self)
         createAnimations()
@@ -45,7 +46,7 @@ class FlyMan: SKSpriteNode,GameSprite{
             }])
         let jumpAction = SKAction.animate(with: jumpFrames, timePerFrame: 0.4)
         let jumpGroup = SKAction.group([jumpAction,
-                                        SKAction.applyImpulse(CGVector(dx: 0, dy: 40), duration: 0.05)])
+                                        SKAction.applyImpulse(CGVector(dx: 0, dy: 30), duration: 0.05)])
         
         let jumpingSequence = SKAction.sequence([standingGroup,jumpGroup,flyGroup])
         jumpAnimation = SKAction.repeatForever(jumpingSequence)
